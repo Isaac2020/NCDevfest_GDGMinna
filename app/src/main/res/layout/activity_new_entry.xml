@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".activities.NewEntryActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="North Central Devfest 2018"
+        android:gravity="center_horizontal"
+        android:textStyle="bold"
+        android:textSize="22sp"
+        android:layout_marginVertical="16dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+    <EditText
+        android:id="@+id/firstName_field"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:paddingVertical="10dp"
+        android:layout_marginRight="8dp"
+        android:layout_height="wrap_content"
+        android:inputType="textCapSentences"
+        android:hint="First Name"/>
+
+        <EditText
+            android:id="@+id/lastName_field"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="8dp"
+            android:paddingVertical="10dp"
+            android:layout_height="wrap_content"
+            android:inputType="textCapSentences"
+            android:hint="Last Name"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/phoneNumber_field"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:paddingVertical="10dp"
+            android:layout_marginRight="8dp"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:hint="Phone Number"/>
+
+        <EditText
+            android:id="@+id/roomNumber_field"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="5dp"
+            android:paddingVertical="10dp"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:hint="Room Number"/>
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/roomPartner_field"
+        android:paddingVertical="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="Room Partner (Full Name)"/>
+
+    <EditText
+        android:id="@+id/extraPerson_field"
+        android:paddingVertical="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:autofillHints="None"
+        android:hint="Extra Person in Room (If any)"/>
+
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="16dp"
+        android:layout_gravity="center_horizontal">
+
+        <Button
+            android:id="@+id/cancleBT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cancel"
+            android:textColor="@android:color/white"/>
+
+        <Button
+            android:id="@+id/submitBT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Send"
+            android:textColor="@android:color/white"/>
+
+    </LinearLayout>
+
+</LinearLayout>

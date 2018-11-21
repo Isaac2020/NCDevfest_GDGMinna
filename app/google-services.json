@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "421291651397",
+    "firebase_url": "https://nc-devfest-gdg-minna.firebaseio.com",
+    "project_id": "nc-devfest-gdg-minna",
+    "storage_bucket": "nc-devfest-gdg-minna.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:421291651397:android:4a112c3b774a67bf",
+        "android_client_info": {
+          "package_name": "com.gdgminna.android.ncdevfestgdgminna"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "421291651397-a2s2p1m57ktt8ste50mg3ne5ghn692pt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCP6JJjAbvUuepsyvG5A5P7zwo8e-VkpEg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

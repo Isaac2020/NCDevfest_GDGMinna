@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_home) {
             // Handle the camera action
         } else if (id == R.id.nav_list) {
-            startActivity(new Intent(this, AllEntriesActivity.class));
+            startActivity(new Intent(this, EntryListActivity.class));
             finish();
 
         } else if (id == R.id.nav_my_detail) {
@@ -98,6 +98,8 @@ public class MainActivity extends AppCompatActivity
             finish();
 
         } else if (id == R.id.nav_manage) {
+            startActivity(new Intent(this, NewEntryActivity.class));
+            finish();
 
         } else if (id == R.id.nav_share) {
 

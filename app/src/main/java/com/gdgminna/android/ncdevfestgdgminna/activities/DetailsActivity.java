@@ -81,7 +81,7 @@ public class DetailsActivity extends BaseActivity implements View.OnClickListene
 
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                // Get Post object and use the values to update the UI
+                // Get Entry object and use the values to update the UI
                 Entry entry = dataSnapshot.getValue(Entry.class);
                 // [START_EXCLUDE]
                 firstNameView.setText(entry.firstName);
@@ -95,7 +95,7 @@ public class DetailsActivity extends BaseActivity implements View.OnClickListene
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                // Getting Post failed, log a message
+                // Getting Entry failed, log a message
                 Log.w(TAG, "loadPost:onCancelled", databaseError.toException());
                 // [START_EXCLUDE]
                 Toast.makeText(DetailsActivity.this, "Failed to load post.",

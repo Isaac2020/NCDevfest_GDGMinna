@@ -17,8 +17,9 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".activities.LoginActivity"
-            android:label="@string/title_activity_login"
+
             android:theme="@style/AppTheme.NoActionBar">
+        <!--android:label="@string/title_activity_login"-->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -36,13 +37,23 @@
             android:name=".activities.DetailsActivity"
             android:label="@string/title_activity_details"
             android:parentActivityName=".activities.MainActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
         <activity android:name=".activities.BaseActivity" />
         <activity
             android:name=".activities.MyDetailsActivity"
             android:label="@string/title_activity_my_details"
             android:parentActivityName=".activities.MainActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".activities.EntryListActivity"
+            android:label="@string/title_activity_entry_list"
+            android:parentActivityName=".activities.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.gdgminna.android.ncdevfestgdgminna.activities.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

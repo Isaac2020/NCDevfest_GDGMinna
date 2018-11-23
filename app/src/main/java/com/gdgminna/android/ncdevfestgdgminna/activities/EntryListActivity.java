@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,7 +26,7 @@ import com.google.firebase.database.MutableData;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.Transaction;
 
-public abstract class EntryListActivity extends Fragment {
+public class EntryListActivity extends AppCompatActivity {
 
     private static final String TAG = "EntryListFragment";
 
@@ -37,39 +38,35 @@ public abstract class EntryListActivity extends Fragment {
     private RecyclerView mRecycler;
     private LinearLayoutManager mManager;
 
-    public EntryListActivity () {}
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        super.onCreateView(inflater, container, savedInstanceState);
-        View rootView = inflater.inflate(R.layout.activity_entry_list, container, false);
-        // [START create_database_reference]
-        mDatabase = FirebaseDatabase.getInstance().getReference();
-        // [END create_database_reference]
 
-        mRecycler = rootView.findViewById(R.id.messages_list);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_entry_list);
+
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        mRecycler = findViewById(R.id.messages_list);
         mRecycler.setHasFixedSize(true);
 
-        return rootView;
-    }
-        @Override
-        public void onActivityCreated(Bundle savedInstanceState) {
-            super.onActivityCreated(savedInstanceState);
 
-            // Set up Layout Manager, reverse layout
-            mManager = new LinearLayoutManager(getActivity());
+        // Set up Layout Manager, reverse layout
+            mManager = new LinearLayoutManager(getApplicationContext());
             mManager.setReverseLayout(true);
             mManager.setStackFromEnd(true);
             mRecycler.setLayoutManager(mManager);
 
-            // Set up FirebaseRecyclerAdapter with the Query
-            Query postsQuery = getQuery(mDatabase);
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+        // [END create_database_reference]
 
 
-            FirebaseRecyclerOptions options = new FirebaseRecyclerOptions.Builder<Entry>()
+        // Set up FirebaseRecyclerAdapter with the Query
+        Query postsQuery = getQuery(mDatabase);
+
+        FirebaseRecyclerOptions options = new FirebaseRecyclerOptions.Builder<Entry>()
                 .setQuery(postsQuery, Entry.class)
                 .build();
-
 
         mAdapter = new FirebaseRecyclerAdapter<Entry, EntryViewHolder>(options) {
 
@@ -89,7 +86,7 @@ public abstract class EntryListActivity extends Fragment {
                     @Override
                     public void onClick(View v) {
                         // Launch PostDetailActivity
-                        Intent intent = new Intent(getContext(), DetailsActivity.class);
+                        Intent intent = new Intent(getApplicationContext(), DetailsActivity.class);
                         intent.putExtra(DetailsActivity.EXTRA_POST_KEY, postKey);
                         startActivity(intent);
                     }
@@ -102,13 +99,40 @@ public abstract class EntryListActivity extends Fragment {
 
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        if (mAdapter != null) {
+            mAdapter.startListening();
+        }
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (mAdapter != null) {
+            mAdapter.stopListening();
+        }
+    }
 
             public String getUid() {
                 return FirebaseAuth.getInstance().getCurrentUser().getUid();
             }
 
-    public abstract Query getQuery(DatabaseReference databaseReference);
+
+    public Query getQuery(DatabaseReference databaseReference) {
+        // [START recent_posts_query]
+        // Last 100 posts, these are automatically the 100 most recent
+        // due to sorting by push() keys
+        Query recentPostsQuery = databaseReference.child("posts")
+                .limitToFirst(20);
+        // [END recent_posts_query]
+        DatabaseReference scoresRef = FirebaseDatabase.getInstance().getReference("posts");
+        scoresRef.keepSynced(true);
+
+        return recentPostsQuery;
     }
+}
 
 
 

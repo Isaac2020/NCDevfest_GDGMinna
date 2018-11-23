@@ -84,24 +84,25 @@ public class NewEntryActivity extends BaseActivity {
         final Long dateAndTime = mdateAndTime;
 
 
-        // Title is required
+        // First Name is required
         if (TextUtils.isEmpty(firstName)) {
             mFirstNameField.setError(REQUIRED);
             return;
         }
 
-        // Author is required
+        // Last Name is required
         if (TextUtils.isEmpty(lastName)) {
             mLastNameField.setError(REQUIRED);
             return;
         }
 
-        // Author is required
+        // Phone Number is required
         if (TextUtils.isEmpty(phoneNumber)) {
             mPhoneNumberField.setError(REQUIRED);
             return;
         }
 
+        // Room Number is required
         if (TextUtils.isEmpty(roomNumber)) {
             mRoomNumberField.setError(REQUIRED);
             return;

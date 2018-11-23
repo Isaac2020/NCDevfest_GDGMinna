@@ -9,17 +9,17 @@
             android:icon="@drawable/ic_home_black_24dp"
             android:title="Home" />
         <item
-            android:id="@+id/nav_list"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="List" />
-        <item
             android:id="@+id/nav_my_detail"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="My Detail" />
+            android:icon="@drawable/ic_account_box_black_24dp"
+            android:title="My Details" />
+        <item
+            android:id="@+id/nav_list"
+            android:icon="@drawable/ic_assignment_turned_in_black_24dp"
+            android:title="Other's info" />
         <item
             android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
+            android:icon="@drawable/ic_assignment_black_24dp"
+            android:title="Enter Info" />
     </group>
 
     <item android:title="Communicate">

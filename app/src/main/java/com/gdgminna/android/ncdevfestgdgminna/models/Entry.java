@@ -17,7 +17,7 @@ public class Entry {
     public String roomPartner;
     public String extraPerson;
     public Long dateAndTime;
-    public Map<String, Boolean> stars = new HashMap<>();
+
 
 
 
@@ -29,8 +29,8 @@ public class Entry {
                   String extraPerson, Long dateAndTime) {
         this.uid = uid;
         this.userName = userName;
-        this.lastName = lastName;
         this.firstName = firstName;
+        this.lastName = lastName;
         this.phonenumber = phoneNumber;
         this.roomNumber = roomNumber;
         this.roomPartner = roomPartner;

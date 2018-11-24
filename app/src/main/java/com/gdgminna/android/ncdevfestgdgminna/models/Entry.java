@@ -12,7 +12,7 @@ public class Entry {
     public String userName;
     public String firstName;
     public String lastName;
-    public String phonenumber;
+    public String phoneNumber;
     public String roomNumber;
     public String roomPartner;
     public String extraPerson;
@@ -22,16 +22,16 @@ public class Entry {
 
 
     public Entry() {
-        // Default constructor required for calls to DataSnapshot.getValue(Book.class)
+        // Default constructor required for calls to DataSnapshot.getValue(Entry.class)
     }
 
-    public Entry (String uid, String userName, String lastName, String firstName, String phoneNumber, String roomNumber, String roomPartner,
+    public Entry (String uid, String userName, String firstName, String lastName, String phoneNumber, String roomNumber, String roomPartner,
                   String extraPerson, Long dateAndTime) {
         this.uid = uid;
         this.userName = userName;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.phonenumber = phoneNumber;
+        this.phoneNumber = phoneNumber;
         this.roomNumber = roomNumber;
         this.roomPartner = roomPartner;
         this.extraPerson = extraPerson;
@@ -45,8 +45,8 @@ public class Entry {
         result.put("uid", uid);
         result.put("userName", userName);
         result.put("firstName", firstName);
-        result.put("LastName", lastName);
-        result.put("phomeNumber", phonenumber);
+        result.put("lastName", lastName);
+        result.put("phoneNumber", phoneNumber);
         result.put("roomNumber", roomNumber);
         result.put("roomPartner", roomPartner);
         result.put("extraPerson", extraPerson);

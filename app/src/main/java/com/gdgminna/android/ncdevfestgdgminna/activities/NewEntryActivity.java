@@ -165,12 +165,12 @@ public class NewEntryActivity extends BaseActivity {
     }
 
     // [START write_fan_out]
-    private void writeNewPost(String userId, String username, String lastName, String firstName, String phoneNumber, String roomNumber, String roomPartner,
+    private void writeNewPost(String userId, String username, String firstName, String lastName, String phoneNumber, String roomNumber, String roomPartner,
                               String extraPerson, Long dateAndTime) {
         // Create new post at /user-posts/$userid/$postid and at
         // /posts/$postid simultaneously
         String key = mDatabase.child("posts").push().getKey();
-        Entry post = new Entry (userId, username, lastName, firstName, phoneNumber, roomNumber, roomPartner, extraPerson, dateAndTime );
+        Entry post = new Entry (userId, username, firstName, lastName, phoneNumber, roomNumber, roomPartner, extraPerson, dateAndTime );
         Map<String, Object> postValues = post.toMap();
 
         Map<String, Object> childUpdates = new HashMap<>();

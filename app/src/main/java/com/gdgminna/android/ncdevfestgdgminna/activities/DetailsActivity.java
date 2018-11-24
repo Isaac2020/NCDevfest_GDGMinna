@@ -1,9 +1,6 @@
 package com.gdgminna.android.ncdevfestgdgminna.activities;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
@@ -41,15 +38,17 @@ public class DetailsActivity extends BaseActivity implements View.OnClickListene
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+//            }
+//        });
+
 
         mPostKey = getIntent().getStringExtra(EXTRA_POST_KEY);
         if (mPostKey == null) {
@@ -86,7 +85,7 @@ public class DetailsActivity extends BaseActivity implements View.OnClickListene
                 // [START_EXCLUDE]
                 firstNameView.setText(entry.firstName);
                 lastNameView .setText(entry.lastName);
-                phoneNumberView.setText(entry.phonenumber);
+                phoneNumberView.setText(entry.phoneNumber);
                 roomNumberView.setText(entry.roomNumber);
                 roomPartner.setText(entry.roomPartner);
                 extraPerson.setText(entry.extraPerson);

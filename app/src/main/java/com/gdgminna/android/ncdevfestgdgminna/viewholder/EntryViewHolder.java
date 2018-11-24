@@ -2,7 +2,6 @@ package com.gdgminna.android.ncdevfestgdgminna.viewholder;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.gdgminna.android.ncdevfestgdgminna.R;
@@ -28,7 +27,7 @@ public class EntryViewHolder extends RecyclerView.ViewHolder {
 
         firstNameView.setText(entry.firstName);
         lastNameView.setText(entry.lastName);
-        phoneNumberView.setText(entry.phonenumber);
+        phoneNumberView.setText(entry.phoneNumber);
         roomNumberView.setText(entry.roomNumber);
 
     }

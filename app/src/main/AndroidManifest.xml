@@ -32,11 +32,12 @@
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".activities.NewEntryActivity"
+            android:parentActivityName=".activities.MainActivity"
             android:label="@string/title_activity_newentry" />
         <activity
             android:name=".activities.DetailsActivity"
             android:label="@string/title_activity_details"
-            android:parentActivityName=".activities.MainActivity"
+            android:parentActivityName=".activities.EntryListActivity"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity android:name=".activities.BaseActivity" />

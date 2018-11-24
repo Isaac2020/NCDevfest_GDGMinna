@@ -58,7 +58,10 @@ public class DetailsActivity extends BaseActivity implements View.OnClickListene
         // Initialize Database
         mPostReference = FirebaseDatabase.getInstance().getReference()
                 .child("posts").child(mPostKey);
+        mPostReference.keepSynced(true);
 
+        DatabaseReference scoresRef = FirebaseDatabase.getInstance().getReference("posts");
+        scoresRef.keepSynced(true);
 
         // Initialize Views
         firstNameView = findViewById(R.id.firstName_Tv);

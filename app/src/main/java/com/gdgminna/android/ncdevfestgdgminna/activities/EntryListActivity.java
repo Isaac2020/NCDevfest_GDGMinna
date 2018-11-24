@@ -1,13 +1,10 @@
 package com.gdgminna.android.ncdevfestgdgminna.activities;
 
 import android.content.Intent;
-import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,13 +15,9 @@ import com.gdgminna.android.ncdevfestgdgminna.R;
 import com.gdgminna.android.ncdevfestgdgminna.models.Entry;
 import com.gdgminna.android.ncdevfestgdgminna.viewholder.EntryViewHolder;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.MutableData;
 import com.google.firebase.database.Query;
-import com.google.firebase.database.Transaction;
 
 public class EntryListActivity extends AppCompatActivity {
 
@@ -60,13 +53,13 @@ public class EntryListActivity extends AppCompatActivity {
         mDatabase = FirebaseDatabase.getInstance().getReference();
         // [END create_database_reference]
 
-
         // Set up FirebaseRecyclerAdapter with the Query
         Query postsQuery = getQuery(mDatabase);
 
         FirebaseRecyclerOptions options = new FirebaseRecyclerOptions.Builder<Entry>()
                 .setQuery(postsQuery, Entry.class)
                 .build();
+
 
         mAdapter = new FirebaseRecyclerAdapter<Entry, EntryViewHolder>(options) {
 
@@ -126,9 +119,8 @@ public class EntryListActivity extends AppCompatActivity {
         // due to sorting by push() keys
         Query recentPostsQuery = databaseReference.child("posts")
                 .limitToFirst(20);
+        recentPostsQuery.keepSynced(true);
         // [END recent_posts_query]
-        DatabaseReference scoresRef = FirebaseDatabase.getInstance().getReference("posts");
-        scoresRef.keepSynced(true);
 
         return recentPostsQuery;
     }

@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 import com.gdgminna.android.ncdevfestgdgminna.R;
 import com.gdgminna.android.ncdevfestgdgminna.models.Entry;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -40,9 +41,11 @@ public class MyDetailsActivity extends BaseActivity {
         // Initialize Database
         final String userId = getUid();
         mPostReference = FirebaseDatabase.getInstance().getReference()
-                .child("user-posts");
+                .child("user-posts").child(userId);
         mPostReference.keepSynced(true);
 
+//        DatabaseReference scoresRef = FirebaseDatabase.getInstance().getReference("user-posts");
+//        scoresRef.keepSynced(true);
 
         // Initialize Views
         firstNameView = findViewById(R.id.firstName_Tv);
@@ -100,6 +103,10 @@ public class MyDetailsActivity extends BaseActivity {
 
         // Keep copy of post listener so we can remove it when app stops
         mPostListener = postListener;
+    }
+
+    public String getUid() {
+        return FirebaseAuth.getInstance().getCurrentUser().getUid();
     }
 
     @Override

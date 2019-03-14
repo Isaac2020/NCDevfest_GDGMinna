@@ -35,7 +35,6 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="First Name"
                 android:textColor="@android:color/black"
                 android:layout_marginLeft="16dp"
                 android:textAppearance="?android:textAppearanceMedium" />
@@ -45,7 +44,6 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Last Name"
                 android:textColor="@android:color/black"
                 android:layout_marginLeft="16dp"
                 android:textAppearance="?android:textAppearanceMedium" />
@@ -74,7 +72,6 @@
                 android:id="@+id/phoneNumber_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Phone Number"
                 android:layout_marginLeft="16dp"
                 android:textColor="@android:color/black"
                 android:textAppearance="?android:textAppearanceMedium"
@@ -100,13 +97,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="16dp"
-                    android:text="Rm Numb"
                     android:textAppearance="?android:textAppearanceMedium"
                     android:textColor="@android:color/black" />
             </LinearLayout>
 
         </LinearLayout>
-
-
     </LinearLayout>
 </android.support.v7.widget.CardView>

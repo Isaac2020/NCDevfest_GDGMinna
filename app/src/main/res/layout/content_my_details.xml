@@ -65,7 +65,6 @@
                         android:id="@+id/roomPartner_Tv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Full Name"
                         android:textColor="@android:color/black"
                         android:layout_marginLeft="16dp"
                         android:textAppearance="?android:textAppearanceMedium" />
@@ -87,7 +86,6 @@
                         android:id="@+id/extraPerson_Tv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Full Name"
                         android:textColor="@android:color/black"
                         android:layout_marginLeft="16dp"
                         android:textAppearance="?android:textAppearanceMedium" />

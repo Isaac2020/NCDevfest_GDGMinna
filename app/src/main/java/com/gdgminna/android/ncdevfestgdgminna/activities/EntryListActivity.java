@@ -2,7 +2,6 @@ package com.gdgminna.android.ncdevfestgdgminna.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -19,7 +18,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 
-public class EntryListActivity extends AppCompatActivity {
+public class EntryListActivity extends BaseActivity {
 
     private static final String TAG = "EntryListFragment";
 
@@ -60,19 +59,20 @@ public class EntryListActivity extends AppCompatActivity {
                 .setQuery(postsQuery, Entry.class)
                 .build();
 
-
+        showProgressDialog();
         mAdapter = new FirebaseRecyclerAdapter<Entry, EntryViewHolder>(options) {
 
             @Override
             public EntryViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
                 LayoutInflater inflater = LayoutInflater.from(viewGroup.getContext());
+
                 return new EntryViewHolder(inflater.inflate(R.layout.entry_item, viewGroup, false));
             }
 
             @Override
             protected void onBindViewHolder(EntryViewHolder viewHolder, int position, final Entry model) {
                 final DatabaseReference postRef = getRef(position);
-
+                hideProgressDialog();
                 // Set click listener for the whole post view
                 final String postKey = postRef.getKey();
                 viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -104,6 +104,7 @@ public class EntryListActivity extends AppCompatActivity {
     public void onStop() {
         super.onStop();
         if (mAdapter != null) {
+            hideProgressDialog();
             mAdapter.stopListening();
         }
     }
@@ -118,11 +119,11 @@ public class EntryListActivity extends AppCompatActivity {
         // Last 100 posts, these are automatically the 100 most recent
         // due to sorting by push() keys
         Query recentPostsQuery = databaseReference.child("posts")
-                .limitToFirst(20);
+                .limitToFirst(50);
         recentPostsQuery.keepSynced(true);
         // [END recent_posts_query]
-
         return recentPostsQuery;
+
     }
 }
 
